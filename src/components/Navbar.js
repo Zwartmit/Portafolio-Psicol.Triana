@@ -145,7 +145,7 @@ const Navbar = () => {
           <img src={icon} alt="logo" />
         </a>
         <TextContainer>
-          <h1>Cesar Augusto Triana Mariño</h1>
+          <h1>César Augusto Triana Mariño</h1>
           <h2>Psicólogo profesional</h2>
         </TextContainer>
       </LogoContainer>
