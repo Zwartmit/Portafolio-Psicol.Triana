@@ -173,10 +173,10 @@ const Navbar = () => {
           <Link to="/" onClick={() => setMenuOpen(false)}>
             <FaHome /> Inicio
           </Link>
-          <Link to="/about" onClick={() => setMenuOpen(false)}>
+          <Link to="/sobre-mi" onClick={() => setMenuOpen(false)}>
             <FaUser /> Sobre mí
           </Link>
-          <Link to="/services" onClick={() => setMenuOpen(false)}>
+          <Link to="/servicios" onClick={() => setMenuOpen(false)}>
             <FaBriefcase /> Servicios
           </Link>
         </DropdownMenu>
