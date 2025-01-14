@@ -124,14 +124,14 @@ const About = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3500,
+    autoplaySpeed: 4000,
   };
   return (
     <AboutSection>
       <Title>Sobre mí</Title>
       <Card>
         <Paragraph style={{ fontWeight: "bold", color: "#ffffff" }}>
-          Hola, Soy Cesar Augusto Triana Marino...
+          Hola, Soy César Augusto Triana Marino...
         </Paragraph>
         <ContentWrapper>
           <Image src={cesar} alt="Cesar Augusto Triana Marino" />
