@@ -6,6 +6,12 @@ const GlobalStyles = createGlobalStyle`
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f4f9;
     color: #333;
+    overflow-x: hidden;
+  }
+
+  html, body, #root {
+    height: 100%;
+    overflow-y: auto;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -16,7 +22,6 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.6;
   }
 
-  /* Responsive Base */
   @media (max-width: 768px) {
     body {
       font-size: 14px;

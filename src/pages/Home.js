@@ -3,13 +3,14 @@ import styled from "styled-components";
 
 const Hero = styled.section`
   text-align: center;
-  padding: 50px 20px;
+  padding: 35px 20px;
 
   h1 {
     font-size: 24px;
 
     @media (min-width: 768px) {
       font-size: 32px;
+      text-align: center;
     }
   }
 `;

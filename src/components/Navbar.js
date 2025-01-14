@@ -25,8 +25,8 @@ const LogoContainer = styled.div`
   align-items: center;
 
   img {
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
   }
 `;
 
@@ -77,7 +77,7 @@ const DropdownMenu = styled.div`
   position: absolute;
   top: 100%;
   right: 0;
-  width: 100%;
+  width: 30%;
   padding: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 10;

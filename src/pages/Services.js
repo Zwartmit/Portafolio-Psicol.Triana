@@ -8,18 +8,13 @@ import difcog from "../assets/difcog.png";
 import psiclin from "../assets/psiclin.png";
 
 const ServicesSection = styled.section`
-  padding: 20px;
+  padding: 30px 20px;
   text-align: center;
 
   h2 {
-    font-size: 28px;
-    margin-bottom: 15px;
-  }
-
-  @media (max-width: 768px) {
-    h2 {
-      font-size: 24px;
-    }
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #333;
   }
 `;
 
@@ -29,41 +24,37 @@ const SliderWrapper = styled.div`
 `;
 
 const ServiceCard = styled.div`
-  background: #ffffff;
-  border-radius: 15px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(9, 9, 121, 1) 48%, rgba(0, 93, 255, 1) 100%);
+  border-radius: 25px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 25px;
+  padding: 30px;
   margin: 10px;
   max-width: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 90%;
-  margin: 0 auto;
 
-  @media (min-width: 768px) {
-    max-width: 250px;
-
-  }
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   }
 
   img {
-   justify-content: left;
+    justify-content: left;
+    background-color:#b0b1b5;
+    border-radius: 30px;
   }
 
   h3 {
-    color: #4caf50;
+    color:rgb(255, 255, 255);
     font-size: 22px;
     margin-bottom: 15px;
   }
 
   p {
     font-size: 16px;
-    color: #555;
+    color:#b0b1b5;
     text-align: center;
   }
 `;
