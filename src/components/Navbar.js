@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { FaHome, FaUser, FaBriefcase, FaTimes } from "react-icons/fa";
+import { FaHome, FaUser, FaBriefcase } from "react-icons/fa";
 import icon from "../assets/icon.png";
 
 const NavbarContainer = styled.nav`
