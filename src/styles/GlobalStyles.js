@@ -4,7 +4,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color:rgb(46, 46, 187);
+    background-color: #f4f4f9;
     color: #333;
   }
 
@@ -14,6 +14,25 @@ const GlobalStyles = createGlobalStyle`
 
   p {
     line-height: 1.6;
+  }
+
+  /* Responsive Base */
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 14px;
+    }
   }
 `;
 

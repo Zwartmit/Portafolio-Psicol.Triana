@@ -8,13 +8,18 @@ import difcog from "../assets/difcog.png";
 import psiclin from "../assets/psiclin.png";
 
 const ServicesSection = styled.section`
-  padding: 30px 20px;
+  padding: 20px;
   text-align: center;
 
   h2 {
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 24px;
+    }
   }
 `;
 
@@ -34,7 +39,13 @@ const ServiceCard = styled.div`
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 90%;
+  margin: 0 auto;
 
+  @media (min-width: 768px) {
+    max-width: 250px;
+
+  }
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
