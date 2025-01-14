@@ -5,7 +5,7 @@ import cesar from "../assets/cesar.jpg";
 const AboutSection = styled.section`
   padding: 5px 20px;
   text-align: center;
-  
+
   @media (max-width: 768px) {
     padding: 20px 20px;
   }
@@ -77,21 +77,16 @@ const About = () => {
           <Image src={cesar} alt="Cesar Augusto Triana Marino" />
           <div>
             <Paragraph>
-              Soy psicólogo egresado de la Universidad Sergio Arboleda,
-              especializado en psicología social-comunitaria con un enfoque
-              sistémico. He trabajado en la implementación de políticas públicas
-              de salud mental y en atención a víctimas de violencia y problemas
-              asociados al consumo de sustancias psicoactivas, tanto en roles
-              públicos como clínicos independientes.
+              Soy psicólogo egresado de la Universidad Sergio Arboleda, especializado en psicología social-comunitaria con enfoque sistémico.
+              He trabajado en la implementación de políticas públicas de salud mental, así como en la atención a víctimas de violencia y problemas
+              asociados al consumo de sustancias psicoactivas, tanto en roles públicos como en la práctica clínica independiente.
             </Paragraph>
           </div>
         </ContentWrapper>
         <Paragraph>
-          Cuento con experiencia en terapias cognitivo-conductuales,
-          investigación y trabajo social, promoviendo cambios positivos y
-          duraderos. Destaco por mi comunicación efectiva, ética profesional,
-          capacidad de escucha y trabajo en equipos interdisciplinarios para
-          ofrecer soluciones integrales adaptadas a cada situación.
+          Cuento con experiencia en terapias cognitivo-conductuales, investigación y trabajo social, promoviendo cambios positivos y duraderos.
+          Me destaco por mi comunicación efectiva, ética profesional, capacidad de escucha y trabajo en equipos interdisciplinarios, siempre enfocados
+          en ofrecer soluciones integrales adaptadas a cada situación.
         </Paragraph>
         <Paragraph
           style={{ fontWeight: "bold", color: "#ffffff", marginTop: "40px" }}
@@ -99,14 +94,10 @@ const About = () => {
           Mi experiencia...
         </Paragraph>
         <Paragraph>
-          En 2022, formé parte de la comisaría de familia y la secretaría de
-          desarrollo social, contribuyendo en la implementación de la política
-          pública municipal de salud mental en Monterrey, Casanare. En 2023,
-          trabajé como profesional de salud pública en el área de salud mental,
-          brindando seguimiento a víctimas de violencia y a personas con
-          problemas asociados al consumo de sustancias psicoactivas. En 2024,
-          continué con este trabajo hasta agosto, y luego trabajé como psicólogo
-          clínico independiente.
+          En 2022, formé parte de la Comisaría de Familia y la Secretaría de Desarrollo Social, contribuyendo en la implementación de la política pública
+          municipal de salud mental en Monterrey, Casanare. En 2023, trabajé como profesional de salud pública en el área de salud mental, brindando seguimiento
+          a víctimas de violencia y a personas con problemas asociados al consumo de sustancias psicoactivas. En 2024, continué con este trabajo hasta agosto,
+          para luego desempeñarme como psicólogo clínico independiente.
         </Paragraph>
       </Card>
     </AboutSection>

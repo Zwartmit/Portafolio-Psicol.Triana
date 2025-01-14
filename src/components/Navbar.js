@@ -154,10 +154,10 @@ const Navbar = () => {
         <Link to="/">
           <FaHome /> Inicio
         </Link>
-        <Link to="/about">
+        <Link to="/sobre-mi">
           <FaUser /> Sobre mí
         </Link>
-        <Link to="/services">
+        <Link to="/servicios">
           <FaBriefcase /> Servicios
         </Link>
       </Links>
