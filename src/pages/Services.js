@@ -17,6 +17,10 @@ const ServicesSection = styled.section`
     color: #04043c;
     text-shadow: 2px 2px 3px rgb(255, 255, 255);
   }
+    
+  @media (max-width: 768px) {
+    padding: 20px 20px;
+  }
 `;
 
 const SliderWrapper = styled.div`
@@ -49,7 +53,7 @@ const ServiceCard = styled.div`
 
   img {
     justify-content: left;
-    filter: drop-shadow(0px 5px 8px rgb(0, 0, 0)) drop-shadow(0px 5px 8px rgb(0, 0, 0));
+    filter: drop-shadow(0px 5px 8px rgba(0, 0, 0, 0.5)) drop-shadow(0px 5px 8px rgb(0, 0, 0));
     border-radius: 30px;
   }
 

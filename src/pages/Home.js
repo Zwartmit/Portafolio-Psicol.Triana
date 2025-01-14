@@ -16,6 +16,10 @@ const Hero = styled.section`
       text-align: center;
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 20px 20px;
+  }
 `;
 
 const WhatsAppButton = styled.a`

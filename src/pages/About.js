@@ -5,6 +5,9 @@ import cesar from "../assets/cesar.jpg";
 const AboutSection = styled.section`
   padding: 5px 20px;
   text-align: center;
+  @media (max-width: 768px) {
+    padding: 20px 20px;
+  }
 `;
 
 const Card = styled.div`
