@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { FaHome, FaUser, FaBriefcase, FaTimes } from "react-icons/fa";
 import icon from "../assets/icon.png";
 
 const NavbarContainer = styled.nav`
@@ -9,10 +10,9 @@ const NavbarContainer = styled.nav`
   align-items: center;
   padding: 10px 20px;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(9, 9, 121, 1) 48%, rgba(0, 93, 255, 1) 100%);
+  height: 75px;
   color: white;
   font-weight: bold;
-  font-family: sans-serif;
-  font-size: 120%;
   border-radius: 0 0 15px 15px;
   box-shadow: 0px 0px 13px rgb(0, 0, 0), 0px 0px 13px #000000;
   position: relative;
@@ -20,13 +20,30 @@ const NavbarContainer = styled.nav`
 
 const LogoContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
 
   img {
     height: 80px;
     width: 80px;
+  }
+`;
+
+const TextContainer = styled.div`
+  margin-left: 10px;
+  color: white;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0);
+
+  h1 {
+    font-size: 23px;
+    margin: 0;
+    color: #83c4c3;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: normal;
+    color: #b0b1b5;
   }
 `;
 
@@ -39,14 +56,14 @@ const Links = styled.div`
   }
 
   a {
-    margin: 0 6px;
+    margin: 0 10px;
     text-decoration: none;
     background-color: #7fc2c1;
     padding: 5px 15px;
     border-radius: 25px;
-    border: none;
-    box-shadow: 0px 0px 13px rgb(25, 200, 197), 0px 0px 13px #7fc2c1, 0px 0px 13px #000000;
-    color: black;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.75);
 
     &:hover {
       text-decoration: underline;
@@ -59,69 +76,111 @@ const Hamburger = styled.div`
   cursor: pointer;
 
   @media (max-width: 768px) {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 20px;
   }
 
   div {
     width: 25px;
     height: 3px;
     background-color: white;
-    margin: 5px 0;
   }
 `;
 
 const DropdownMenu = styled.div`
-  display: ${(props) => (props.isOpen ? "flex" : "none")};
-  flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.9);
   position: absolute;
-  top: 100%;
-  right: 0;
-  width: 30%;
-  padding: 20px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 10;
+  top: 97px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%; 
+  border-radius: 10px;
+  background: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(9, 9, 121, 1) 48%, rgba(0, 93, 255, 1) 100%);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  padding: 8px;
+  z-index: 9; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: top 0.3s ease-in-out;
+  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
 
   a {
-    color: white;
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
     text-decoration: none;
-    margin: 10px 0;
-    text-align: center;
+    font-size: 18px;
+    color: white;
 
     &:hover {
-      text-decoration: underline;
+      color: #7fc2c1;
     }
   }
 `;
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <NavbarContainer>
       <LogoContainer>
-        <img src={icon} alt="logo" />
+        <a href="/">
+          <img src={icon} alt="logo" />
+        </a>
+        <TextContainer>
+          <h1>Cesar Augusto Triana Mariño</h1>
+          <h2>Psicólogo profesional</h2>
+        </TextContainer>
       </LogoContainer>
 
       <Links>
-        <Link to="/">Inicio</Link>
-        <Link to="/about">Sobre mí</Link>
-        <Link to="/services">Servicios</Link>
-        <Link to="/contact">Contacto</Link>
+        <Link to="/">
+          <FaHome /> Inicio
+        </Link>
+        <Link to="/about">
+          <FaUser /> Sobre mí
+        </Link>
+        <Link to="/services">
+          <FaBriefcase /> Servicios
+        </Link>
       </Links>
 
-      <Hamburger onClick={() => setMenuOpen(!menuOpen)}>
+      <Hamburger onClick={() => setMenuOpen(true)}>
         <div />
         <div />
         <div />
       </Hamburger>
 
-      <DropdownMenu isOpen={menuOpen}>
-        <Link to="/" onClick={() => setMenuOpen(false)}>Inicio</Link>
-        <Link to="/about" onClick={() => setMenuOpen(false)}>Sobre mí</Link>
-        <Link to="/services" onClick={() => setMenuOpen(false)}>Servicios</Link>
-        <Link to="/contact" onClick={() => setMenuOpen(false)}>Contacto</Link>
-      </DropdownMenu>
+      {menuOpen && (
+        <DropdownMenu ref={dropdownRef} isOpen={menuOpen}>
+          <Link to="/" onClick={() => setMenuOpen(false)}>
+            <FaHome /> Inicio
+          </Link>
+          <Link to="/about" onClick={() => setMenuOpen(false)}>
+            <FaUser /> Sobre mí
+          </Link>
+          <Link to="/services" onClick={() => setMenuOpen(false)}>
+            <FaBriefcase /> Servicios
+          </Link>
+        </DropdownMenu>
+      )}
     </NavbarContainer>
   );
 };
