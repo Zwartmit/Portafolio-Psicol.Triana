@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import cesar from "../assets/cesar.jpg";
+import Slider from "react-slick";
 
 const AboutSection = styled.section`
   padding: 5px 20px;
@@ -65,7 +66,24 @@ const Image = styled.img`
   }
 `;
 
+const CarouselWrapper = styled.div`
+  margin-top: 40px;
+  width: 93%;
+  max-width: 500px;
+  margin: 20px auto;
+`;
+
 const About = () => {
+  const carouselSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
   return (
     <AboutSection>
       <Title>Sobre mí</Title>
@@ -99,6 +117,40 @@ const About = () => {
           a víctimas de violencia y a personas con problemas asociados al consumo de sustancias psicoactivas. En 2024, continué con este trabajo hasta agosto,
           para luego desempeñarme como psicólogo clínico independiente.
         </Paragraph>
+        <CarouselWrapper>
+          <Slider {...carouselSettings}>
+            <div>
+              <img src={cesar} alt="Actividad1" style={{ width: "100%", borderRadius: "30px" }} />
+            </div>
+            <div>
+              <img src={cesar} alt="Actividad2" style={{ width: "100%", borderRadius: "30px" }} />
+            </div>
+            <div>
+              <img src={cesar} alt="Actividad3" style={{ width: "100%", borderRadius: "30px" }} />
+            </div>
+            <div>
+              <img src={cesar} alt="Actividad4" style={{ width: "100%", borderRadius: "30px" }} />
+            </div>
+            <div>
+              <img src={cesar} alt="Actividad5" style={{ width: "100%", borderRadius: "30px" }} />
+            </div>
+            <div>
+              <img src={cesar} alt="Actividad6" style={{ width: "100%", borderRadius: "30px" }} />
+            </div>
+            <div>
+              <img src={cesar} alt="Actividad7" style={{ width: "100%", borderRadius: "30px" }} />
+            </div>
+            <div>
+              <img src={cesar} alt="Actividad8" style={{ width: "100%", borderRadius: "30px" }} />
+            </div>
+            <div>
+              <img src={cesar} alt="Actividad9" style={{ width: "100%", borderRadius: "30px" }} />
+            </div>
+            <div>
+              <img src={cesar} alt="Actividad10" style={{ width: "100%", borderRadius: "30px" }} /> 
+            </div>
+          </Slider>
+        </CarouselWrapper>
       </Card>
     </AboutSection>
   );
