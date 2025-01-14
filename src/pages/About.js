@@ -1,4 +1,4 @@
-import React, { act } from "react";
+import React from "react";
 import styled from "styled-components";
 import cesar from "../assets/cesar.jpg";
 import Slider from "react-slick";
