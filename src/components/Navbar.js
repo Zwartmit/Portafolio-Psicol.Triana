@@ -16,6 +16,7 @@ const NavbarContainer = styled.nav`
   border-radius: 0 0 15px 15px;
   box-shadow: 0px 0px 13px rgb(0, 0, 0), 0px 0px 13px #000000;
   position: relative;
+  z-index: 10;
 `;
 
 const LogoContainer = styled.div`
@@ -91,52 +92,43 @@ const Hamburger = styled.div`
 `;
 
 const DropdownMenu = styled.div`
-  position: absolute;
-  top: 97px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 85%; 
-  border-radius: 10px;
-  background: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(9, 9, 121, 1) 48%, rgba(0, 93, 255, 1) 100%);
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-  padding: 8px;
-  z-index: 9; 
+  position: fixed;
+  top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient( rgb(0, 0, 0), rgba(9, 9, 121, 0.9));
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: top 0.3s ease-in-out;
-  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+  transition: top 0.5s ease-in-out;
+  z-index: 10;
 
   a {
-    display: flex;
-    align-items: center;
-    margin: 0 10px;
+    margin: 15px 0;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 24px;
+    font-weight: bold;
     color: white;
 
     &:hover {
       color: #7fc2c1;
     }
   }
+
+  .close-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
 `;
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const dropdownRef = useRef(null);
-
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setMenuOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <NavbarContainer>
@@ -168,19 +160,20 @@ const Navbar = () => {
         <div />
       </Hamburger>
 
-      {menuOpen && (
-        <DropdownMenu ref={dropdownRef} isOpen={menuOpen}>
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            <FaHome /> Inicio
-          </Link>
-          <Link to="/sobre-mi" onClick={() => setMenuOpen(false)}>
-            <FaUser /> Sobre mí
-          </Link>
-          <Link to="/servicios" onClick={() => setMenuOpen(false)}>
-            <FaBriefcase /> Servicios
-          </Link>
-        </DropdownMenu>
-      )}
+      <DropdownMenu isOpen={menuOpen}>
+        <div className="close-icon" onClick={() => setMenuOpen(false)}>
+          &times;
+        </div>
+        <Link to="/" onClick={() => setMenuOpen(false)}>
+          <FaHome /> Inicio
+        </Link>
+        <Link to="/sobre-mi" onClick={() => setMenuOpen(false)}>
+          <FaUser /> Sobre mí
+        </Link>
+        <Link to="/servicios" onClick={() => setMenuOpen(false)}>
+          <FaBriefcase /> Servicios
+        </Link>
+      </DropdownMenu>
     </NavbarContainer>
   );
 };
