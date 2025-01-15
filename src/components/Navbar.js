@@ -93,16 +93,19 @@ const Hamburger = styled.div`
 
 const DropdownMenu = styled.div`
   position: fixed;
-  top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient( rgb(0, 0, 0), rgba(9, 9, 121, 0.9));
+  background: radial-gradient(rgba(0, 0, 0, 0.97), rgba(9, 9, 121, 0.9));
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: top 0.5s ease-in-out;
+  clip-path: ${({ isOpen }) => (isOpen ? "circle(125%)" : "circle(0%)")};
+  animation: ${({ isOpen }) =>
+    isOpen ? "circle-in-center 2.5s cubic-bezier(0.25, 1, 0.30, 1) both" : "none"};
+  transition: clip-path 0.8s ease-in-out;
   z-index: 10;
 
   a {
@@ -121,11 +124,21 @@ const DropdownMenu = styled.div`
     position: absolute;
     top: 20px;
     right: 20px;
-    font-size: 30px;
+    font-size: 45px;
     color: white;
     cursor: pointer;
   }
+
+  @keyframes circle-in-center {
+    from {
+      clip-path: circle(0%);
+    }
+    to {
+      clip-path: circle(125%);
+    }
+  }
 `;
+
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
